@@ -1,7 +1,7 @@
 from google import genai
 from google.genai import types
 
-PROJECT_ID = "abhinav-project-469317"
+PROJECT_ID = "sukrit-project-469317"
 LOCATION = "us-central1"  # use a region, not "global"
 MODEL = "gemini-2.5-flash-lite"
 
