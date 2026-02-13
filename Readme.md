@@ -1,4 +1,4 @@
-# Building AI-Powered Chatbots on Cloud Run: A Project by Abhinav
+# Building AI-Powered Chatbots on Cloud Run: A Project by Sukrit
 
 This repository contains code for a project to **build a Gen-AI chatbot using Google’s Generative AI API**.  
 In this project, we explore the creation of sophisticated AI-powered chatbots on Cloud Run. Follow this step-by-step guide to leverage Google’s Generative AI API and Cloud Run. Learn how to **build, deploy, and manage intelligent chatbots** with multi-modal capabilities, empowering your applications with advanced conversational abilities.
@@ -64,7 +64,7 @@ This project demonstrates how to:
 
 ## Why This Project is Unique
 
-This project is **built entirely by Abhinav** and reflects a focus on **real-world application design**. It emphasizes:  
+This project is **built entirely by Sukrit** and reflects a focus on **real-world application design**. It emphasizes:  
 - Practical deployment strategies for cloud-based AI  
 - Optimized conversational flow with **streaming responses**  
 - Multi-modal understanding for richer interactions  
