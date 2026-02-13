@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TechTrapture Chatbot</title>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: rgb(205, 204, 211);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chat-container {
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+      height: 95%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .header {
+      background-color: #0b041e;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      font-size: 1.5rem;
+    }
+
+    #chat-box {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background-color: #f8f8f8;
+    }
+
+    .message {
+      max-width: 70%;
+      padding: 10px 15px;
+      border-radius: 15px;
+      word-wrap: break-word;
+      font-size: 1rem;
+      line-height: 1.4;
+    }
+
+    .user {
+      align-self: flex-end;
+      background-color: black;
+      color: white;
+    }
+
+    .ai {
+      align-self: flex-start;
+      background-color: #1e90ff;
+      color: white;
+    }
+
+    .chat-form {
+      display: flex;
+      padding: 10px;
+      background-color: #eee;
+      border-top: 1px solid #ccc;
+    }
+
+    #user-input {
+      flex-grow: 1;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      font-size: 1rem;
+    }
+
+    #submitBtn {
+      background-color: rgb(13, 2, 28);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      margin-left: 10px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      font-size: 1rem;
+    }
+
+    #submitBtn:hover {
+      background-color: #11114b;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 600px) {
+      .chat-container {
+        height: 100%;
+        border-radius: 0;
+      }
+      .header {
+        font-size: 1.2rem;
+        padding: 15px;
+      }
+      .message {
+        font-size: 0.9rem;
+      }
+      #submitBtn {
+        padding: 8px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="chat-container">
+    <h1 class="header">TechTrapture Chatbot</h1>
+    <div id="chat-box"></div>
+
+    <form class="chat-form" id="chat-form">
+      <input
+        type="text"
+        id="user-input"
+        name="user_input"
+        placeholder="Type your message..."
+        autocomplete="off"
+      />
+      <button type="submit" id="submitBtn">Send</button>
+    </form>
+  </div>
+
+  <script>
+    const chatBox = document.getElementById("chat-box");
+
+    function addMessage(content, sender) {
+      const div = document.createElement("div");
+      div.className = "message " + sender;
+      div.innerHTML = content;
+      chatBox.appendChild(div);
+      chatBox.scrollTop = chatBox.scrollHeight;
+    }
+
+    document.getElementById("chat-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      const userInput = document.getElementById("user-input").value;
+      if (!userInput) return;
+
+      addMessage(userInput, "user");
+      document.getElementById("user-input").value = "";
+
+      fetch(`/chat?user_input=${encodeURIComponent(userInput)}`)
+        .then(response => response.json())
+        .then(data => {
+          addMessage(data.content, "ai");
+        })
+        .catch(error => {
+          console.error("Error fetching AI response:", error);
+        });
+    });
+  </script>
+</body>
+</html>
