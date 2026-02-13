@@ -54,7 +54,7 @@ def chat():
     user_input = request.args.get('user_input', "") if request.method == 'GET' else request.form.get('user_input', "")
 
     if not user_input:
-        return jsonify(content="⚠️ No input provided.")
+        return jsonify(content="No input provided.")
 
     # Generate AI response
     content = generate_response(user_input)
