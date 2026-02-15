@@ -7,7 +7,7 @@ In this project, we explore the creation of sophisticated AI-powered chatbots on
 
 ## What we will cover?
 
-In this project, Abhinav demonstrates:  
+This project demonstrates:  
 - Understanding the potential of **Generative AI**  
 - Exploring **Generative AI Studio** in Google Cloud  
 - Using the **Python SDK for Vertex AI / Generative AI API**  
@@ -27,7 +27,7 @@ Generative AI is a type of artificial intelligence that can **create novel conte
 
 ## Generative AI Studio in Google Cloud
 
-**Generative AI Studio** is Google Cloud’s platform for experimenting with and customizing generative AI models. It allows developers to rapidly prototype, test, and deploy AI models, providing a console to visualize and refine AI outputs.
+**Generative AI Studio** is Google Cloud’s platform for experimenting and customizing generative AI models. It allows developers to rapidly prototype, test, and deploy AI models, providing a console to visualize and refine AI outputs.
 
 ---
 
@@ -64,7 +64,7 @@ This project demonstrates how to:
 
 ## Why This Project is Unique
 
-This project is **built entirely by Sukrit** and reflects a focus on **real-world application design**. It emphasizes:  
+This project reflects a focus on **real-world application design**. It emphasizes:  
 - Practical deployment strategies for cloud-based AI  
 - Optimized conversational flow with **streaming responses**  
 - Multi-modal understanding for richer interactions  
