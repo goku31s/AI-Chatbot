@@ -5,7 +5,7 @@ from google.genai import types
 app = Flask(__name__)
 
 # Config
-PROJECT_ID = "abhinav-project-469317"
+PROJECT_ID = "sukrit-project-469317"
 LOCATION = "us-central1"
 MODEL = "gemini-2.5-flash-lite"
 
